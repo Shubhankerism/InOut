@@ -21,7 +21,7 @@ async function main(basicDetails) {
    const time = timestamp.format('LT');
     // setup email data with unicode symbols
     let mailOptions = {
-        from: '"SHUBHANKER" <shubhanker621@gmail.com>', // sender address
+        from: 'InOut: Entry Management Software', // sender address
         to: basicDetails.he, // list of receivers
         subject: "New Guest", // Subject line
         //text: "JSON", // plain text body
@@ -41,8 +41,8 @@ async function main2(basicDetails) {
         port: 465,
         secure: true, // true for 465, false for other ports
         auth: {
-            user: "shubhanker621@gmail.com", // generated ethereal user
-            pass: "&9415428621&" // generated ethereal password
+            user: process.env.senderid,
+            pass:process.env.senderpass // generated ethereal password
         }
     });
     var timestamp = moment.unix(basicDetails.it);
@@ -54,7 +54,7 @@ async function main2(basicDetails) {
    const otime = timestamp2.format('LT');
     // setup email data with unicode symbols
     let mailOptions = {
-        from: '"SHUBHANKER" <shubhanker621@gmail.com>', // sender address
+        from: 'InOut: Entry Management Software', // sender address
         to: basicDetails.ge, // list of receivers
         subject: "Visit Details", // Subject line
         //text: "JSON", // plain text body
