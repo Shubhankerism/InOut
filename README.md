@@ -42,7 +42,7 @@ db=DATABASE_NAME
 - Nodemailer (for mailing)
 - MSG91 (for sending SMS)
 
-##Approach
+## Approach
 
 - Upon visiting, a visitor has to fill up the check-in form that comprises of all the mandatory fields.
 - Input validation done through `validator` and submit button gets enabled only if the input is valid.
@@ -54,6 +54,8 @@ db=DATABASE_NAME
 - To check-out, the visitor has to provide its email ID with which he/she had checked-in initially.
 - Input validation done again using `validator`.
 - If no active visitor exists with provided email ID then an alert prompts.
+- Current Visitors list (those who haven't checked-out yet) can be seen by hitting the current visitors option on the navbar.
+- Past Visitors list (those who have checked-out) can be seen by hitting the past visitors option on the navbar.
 
 ## APIs
 
