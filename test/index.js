@@ -15,7 +15,7 @@ describe('POST /Check in visitor',()=>{
         vname : "Nook"
     };
 
-	it('should check-in if a visitor email id is not currently checked in',(done)=>{
+	it('Should check-in if a visitor email id is not currently checked-in',(done)=>{
 		request(server)
 			.post('/api/checkin')
 			.send(fakevisitor)
@@ -25,7 +25,7 @@ describe('POST /Check in visitor',()=>{
 			});
     });
 
-    it('should not check in if a visitor email id currently checked in',(done)=>{
+    it('Should not check in if a visitor email id is currently checked-in',(done)=>{
 		request(server)
 			.post('/api/checkin')
 			.send(fakevisitor)
@@ -45,7 +45,7 @@ describe('POST /Check out visitor',()=>{
         
     };
 
-	it('should check-out if a visitor email id is currently checked in',(done)=>{
+	it('Should check-out if a visitor email id is currently checked-in',(done)=>{
 		request(server)
 			.post('/api/checkout')
 			.send(fakevisitor)
@@ -55,7 +55,7 @@ describe('POST /Check out visitor',()=>{
 			});
     });
 
-    it('should not check out if a visitor email id not currently checked in',(done)=>{
+    it('Should not check out if a visitor email id not currently checked-in',(done)=>{
 		request(server)
 			.post('/api/checkout')
 			.send(fakevisitor)
