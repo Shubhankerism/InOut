@@ -5,7 +5,7 @@ require('dotenv').config();
 
 //for host
 
-async function main(basicDetails) {
+async function mailHost(basicDetails) {
 
     let transporter = nodemailer.createTransport({
         host: "smtp.gmail.com",
@@ -13,18 +13,16 @@ async function main(basicDetails) {
         secure: true, // true for 465, false for other ports
         auth: {
             user: process.env.senderid,
-            pass:process.env.senderpass
+            pass: process.env.senderpass
         }
     });
     var timestamp = moment.unix(basicDetails.t);
-   // console.log( timestamp.format('LT'));
-   const time = timestamp.format('LT');
+    const time = timestamp.format('LT');
     // setup email data with unicode symbols
     let mailOptions = {
         from: 'InOut: Entry Management Software', // sender address
         to: basicDetails.he, // list of receivers
         subject: "New Guest", // Subject line
-        //text: "JSON", // plain text body
         html: `Dear ${basicDetails.hn},<br> You have the following guest:<br> <br> Name: <b> ${basicDetails.gn}</b> 
         <br> Phone number: <b> ${basicDetails.gp}</b> <br> Email: <b> ${basicDetails.ge}</b> <br> Check in time: <b> ${time}</b> ` // html body
     };
@@ -34,7 +32,7 @@ async function main(basicDetails) {
 }
 
 //for visitor
-async function main2(basicDetails) {
+async function mailVisitor(basicDetails) {
 
     let transporter = nodemailer.createTransport({
         host: "smtp.gmail.com",
@@ -42,22 +40,18 @@ async function main2(basicDetails) {
         secure: true, // true for 465, false for other ports
         auth: {
             user: process.env.senderid,
-            pass:process.env.senderpass // generated ethereal password
+            pass: process.env.senderpass // generated ethereal password
         }
     });
     var timestamp = moment.unix(basicDetails.it);
-   // console.log( timestamp.format('LT'));
-   const itime = timestamp.format('LT');
+    const itime = timestamp.format('LT');
 
-   var timestamp2 = moment.unix(basicDetails.ot);
-   // console.log( timestamp.format('LT'));
-   const otime = timestamp2.format('LT');
-    // setup email data with unicode symbols
+    var timestamp2 = moment.unix(basicDetails.ot);
+    const otime = timestamp2.format('LT');
     let mailOptions = {
         from: 'InOut: Entry Management Software', // sender address
         to: basicDetails.ge, // list of receivers
         subject: "Visit Details", // Subject line
-        //text: "JSON", // plain text body
         html: `Dear ${basicDetails.gn}, <br> You had the following visit:<br> <br> Host Name: <b> ${basicDetails.hn}</b> 
         <br>Your Phone number: <b> ${basicDetails.gp}</b> <br> Check in time: <b> ${itime}</b> <br> Check out time: <b> ${otime}</b> <br> Address: <b> Innovacer office</b> ` // html body
     };
@@ -66,4 +60,4 @@ async function main2(basicDetails) {
     console.log("Message sent: %s", info.messageId);
 }
 
-module.exports = { main, main2};
+module.exports = { mailHost, mailVisitor };

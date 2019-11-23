@@ -18,15 +18,14 @@ class Routes extends React.Component {
         <Route exact path="/checkout" component={CheckOut} />
         <Route exact path="/current" component={Current} />
         <Route exact path="/past" component={Past} />
-        
-       
+
         <Route
           render={function () {
             return (
-            <>
-              <h1 className="display-4 text-center mt-5">Oops! Looks like you've come to a wrong place.</h1>
-              <h4 className="text-muted text-center">Hit HOME button to return!</h4>
-            </>);
+              <>
+                <h1 className="display-4 text-center mt-5">Oops! Looks like you've come to a wrong place.</h1>
+                <h4 className="text-muted text-center">Hit HOME button to return!</h4>
+              </>);
           }}
         />
       </Switch>

@@ -8,8 +8,6 @@ import {
   MDBNavItem,
   MDBFooter,
   MDBNavLink,
-  // MDBTooltip,
-  // MDBIcon
 } from 'mdbreact';
 import { ReactComponent as Logo } from './assets/logo.svg';
 import { BrowserRouter as Router } from 'react-router-dom';
@@ -46,7 +44,7 @@ class App extends Component {
 
         <div className='flyout'>
           {/* Navbar */}
-          <MDBNavbar  color='black' dark expand='md' fixed='top' scrolling>
+          <MDBNavbar color='black' dark expand='md' fixed='top' scrolling>
             <MDBNavbarBrand href='/' className='py-0 font-weight-bold'>
               <Logo style={{ height: '2.5rem', width: '2.5rem' }} />
               <strong className='align-middle'>InOut</strong>
@@ -100,7 +98,7 @@ class App extends Component {
                   </MDBNavLink>
                 </MDBNavItem>
 
-                
+
                 <MDBNavItem>
                   <MDBNavLink
                     exact
@@ -110,7 +108,7 @@ class App extends Component {
                     <strong>Past Visitors</strong>
                   </MDBNavLink>
                 </MDBNavItem>
-    
+
 
               </MDBNavbarNav>
             </MDBCollapse>
@@ -123,7 +121,7 @@ class App extends Component {
           {/* footer */}
           <MDBFooter color='black'>
             <p className='footer-copyright mb-0 py-3 text-center'>
-             
+
               <a href='https://shubhankerism.github.io/'> <u>Find about the developer here. </u></a>
             </p>
           </MDBFooter>
