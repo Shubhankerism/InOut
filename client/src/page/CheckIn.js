@@ -13,25 +13,19 @@ import {
 } from "mdbreact";
 
 import axios from 'axios';
-// import TimePicker from 'react-times';
-//import TimeField from 'react-simple-timefield';
-//  import TimeKeeper from 'react-timekeeper';
-//import 'react-times/css/classic/default.css';
-//import TimePicker from 'react-gradient-timepicker';
 
+// Check In Component
 
 class CheckInPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            time: "",
             hname: "",
             hphone: "",
             hemail: "",
             vname: "",
             vphone: "",
             vemail: "",
-            checkin: "",
             disable:'true'
         }
         this.onChange = this.onChange.bind(this);
@@ -57,7 +51,7 @@ class CheckInPage extends Component {
         // var checkin = t;
         // this.setState({checkin})
         console.log(this.state);
-
+        var self = this;
         axios.post('/api/checkin', {
             vemail:this.state.vemail,
             vphone:this.state.vphone,
@@ -69,9 +63,8 @@ class CheckInPage extends Component {
           .then(function (response) {
             if(response.status===200){
                 window.alert("You have successfully checked in.");
-               // this.state.move();
-                //window.location='/';
-               //this.props.history.push('/');
+               
+               self.props.history.push('/');
             }
            
           })

@@ -43,8 +43,10 @@ class App extends Component {
 
     return (
       <Router>
+
         <div className='flyout'>
-          <MDBNavbar  color='info-color-dark' dark expand='md' fixed='top' scrolling>
+          {/* Navbar */}
+          <MDBNavbar  color='black' dark expand='md' fixed='top' scrolling>
             <MDBNavbarBrand href='/' className='py-0 font-weight-bold'>
               <Logo style={{ height: '2.5rem', width: '2.5rem' }} />
               <strong className='align-middle'>InOut</strong>
@@ -117,10 +119,12 @@ class App extends Component {
           <main style={{ marginTop: '4rem' }}>
             <Routes />
           </main>
-          <MDBFooter color='red'>
+
+          {/* footer */}
+          <MDBFooter color='black'>
             <p className='footer-copyright mb-0 py-3 text-center'>
              
-              <a href='https://shubhankerism.github.io/'> Find about the developer here. </a>
+              <a href='https://shubhankerism.github.io/'> <u>Find about the developer here. </u></a>
             </p>
           </MDBFooter>
         </div>

@@ -14,8 +14,7 @@ import {
     MDBAnimation
 } from "mdbreact";
 
-
-
+//Check Out Component
 
 class CheckOutPage extends Component {
     constructor(props) {
@@ -29,10 +28,7 @@ class CheckOutPage extends Component {
        
     }
 
- 
-    // move(){
-    //     return <Redirect to='/checkin'/>
-    // }
+
     onChange(e) {
         this.setState({ [e.target.name]: e.target.value });
       
@@ -40,6 +36,7 @@ class CheckOutPage extends Component {
     onSubmit(e) {
         e.preventDefault();
         //console.log(this.state);
+        var self=this;
         if(validator.isEmail(this.state.email)){
             console.log("Valid Email for checkout");
 
@@ -49,9 +46,7 @@ class CheckOutPage extends Component {
               .then(function (response) {
                 if(response.status===200){
                     window.alert("You have successfully checked out.");
-                   // this.state.move();
-                    //window.location='/';
-                   //this.props.history.push('/');
+                   self.props.history.push('/');
                 }
                
               })

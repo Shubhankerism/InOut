@@ -1,11 +1,10 @@
 const mysql2 = require('mysql2');
 const con = require('../config/db').con;
 const mailJS = require('./mail');
-const SendOtp = require('sendotp');
 const moment = require('moment');
 const axios = require('axios');
 
-
+// to send message
 function send_msg(details) {
     var ts=moment.unix(details.t);
     var t=ts.format('LT');
@@ -26,7 +25,7 @@ function send_msg(details) {
       });
 };
 
-
+// For testing purposes
 module.exports.test = (req, res) => {
     
     var timestamp = moment.unix(Date.now()/1000);
@@ -34,6 +33,7 @@ module.exports.test = (req, res) => {
     res.send("hola!");
 }
 
+//check-in API
 module.exports.checkin = (req, res) => {
    // console.log(req.body);
     hemail = req.body.hemail;
@@ -73,7 +73,7 @@ module.exports.checkin = (req, res) => {
     });
 }
 
-
+//check-out API
 module.exports.checkout = (req, res) => {
     // console.log(req.body);
      vemail = req.body.vemail;
@@ -114,33 +114,24 @@ module.exports.checkout = (req, res) => {
      });
  }
 
+ //GET current visitors
 module.exports.current = (req, res) => {
 // console.log(req.body);
-    let query = "SELECT hname, vname FROM checkin WHERE checkedout='0' ORDER BY intime ASC"
+    let query = "SELECT hname, vname, intime FROM checkin WHERE checkedout='0' ORDER BY intime ASC"
     con.query(query,  function (err, result) {
         if (err) throw err;
-        if (result.length == 0) {
-           // res.send("No active visitors."); //invalid email ID 
            res.send(result);
-        }
-        else {
-            res.send(result);
-        }
     });
 }   
 
+//GET past visitors
 module.exports.past = (req, res) => {
     // console.log(req.body);
-        let query = "SELECT hname,vname FROM checkin WHERE checkedout='1' ORDER BY out_time DESC"
+        let query = "SELECT hname,vname,intime,out_time FROM checkin WHERE checkedout='1' ORDER BY out_time DESC"
         con.query(query,  function (err, result) {
             if (err) throw err;
-            if (result.length == 0) {
                 res.send(result);
-               // res.send("No past visitors."); //invalid email ID 
-            }
-            else {
-                res.send(result);
-            }
+            
         });
 }   
 
