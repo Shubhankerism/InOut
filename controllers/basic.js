@@ -18,7 +18,7 @@ function send_msg(details) {
             message: temp,
             country: "91",
             mobiles: details.hp,
-            authkey: process.env.authkey
+            authkey: "237805AB7qpQN5bn5b9d55a9"
         }
     }) .then(function (response) {
         console.log("Message Sent.");

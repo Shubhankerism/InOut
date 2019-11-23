@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const api = require('./routes/api');
 const app = express();
 
-console.log("Body parser called");
+// console.log("Body parser called.");
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 // app.use(express.static(path.join(__dirname, 'dist')));
@@ -14,12 +14,14 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use('/api', api);
 
 
-const port = process.env.PORT || '3000';
+const port = process.env.PORT || '8080';
 app.set('port', port);
 
 // const server = http.createServer(app);
+console.log("Server running on port "+port+".");
 app.listen(port, function () {
     console.log(new Date());
-    console.log(port);
+    //console.log(port);
 });
+
 module.exports = app;

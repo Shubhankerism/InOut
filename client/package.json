@@ -16,7 +16,7 @@
     "react-scripts": "3.0.1",
     "validator": "^12.1.0"
   },
-  "proxy": "http://localhost:3000",
+  "proxy": "http://localhost:8080",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
