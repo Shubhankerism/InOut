@@ -55,7 +55,9 @@ db=DATABASE_NAME
 - Input validation done again using `validator`.
 - If no active visitor exists with provided email ID then an alert prompts.
 - Current Visitors list (those who haven't checked-out yet) can be seen by hitting the current visitors option on the navbar.
+- This list is sorted in ascending order of their timestamp i.e. the earliest visitor will be displayed on top.
 - Past Visitors list (those who have checked-out) can be seen by hitting the past visitors option on the navbar.
+- This list is sorted in descending order of their timestamp i.e. the most recent visitor will be displayed on top.
 
 ## APIs
 
